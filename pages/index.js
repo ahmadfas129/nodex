@@ -3,13 +3,17 @@ import Link from 'next/link'
 import posts from '../data/posts'
 import logo from '../logo.jpeg'
 
+const launchAt = new Date('2026-04-29T23:59:59+05:00').getTime()
+
 export default function Home(){
   const latest = posts[0]
-  const [remainingMs, setRemainingMs] = useState(10 * 60 * 60 * 1000)
+  const [remainingMs, setRemainingMs] = useState(() => Math.max(launchAt - Date.now(), 0))
 
   useEffect(() => {
+    setRemainingMs(Math.max(launchAt - Date.now(), 0))
+
     const timer = setInterval(() => {
-      setRemainingMs(prev => Math.max(prev - 1000, 0))
+      setRemainingMs(Math.max(launchAt - Date.now(), 0))
     }, 1000)
 
     return () => clearInterval(timer)
