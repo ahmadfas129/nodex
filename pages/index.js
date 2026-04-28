@@ -27,15 +27,6 @@ export default function Home(){
 
   return (
     <div className="container">
-      <section className="card" style={{marginBottom:20, textAlign:'center', background:'linear-gradient(135deg, rgba(0,153,255,0.18), rgba(255,255,255,0.03))'}}>
-        <div style={{fontSize:14, letterSpacing:'0.12em', textTransform:'uppercase', color:'#9aa8bf'}}>NodeX Launch Countdown</div>
-        <h2 style={{margin:'10px 0 8px', fontSize:36}}>{launched ? 'Coin is launched visit the link pasted below quickly' : 'Coin will be launched in'}</h2>
-        <div style={{fontSize:42, fontWeight:800, color:'#ffffff'}}>{launched ? '00:00:00' : `${hours}:${minutes}:${seconds}`}</div>
-        <div style={{marginTop:12}}>
-          <a href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer" className="card" style={{display:'inline-block', padding:'10px 16px'}}>https://dexscreener.com/</a>
-        </div>
-      </section>
-
       <header className="header">
         <div style={{display:'flex',alignItems:'center',gap:12}}>
           <div className="logo card"><img src={logo.src} alt="NodeX" style={{width:'100%',height:'100%'}}/></div>
@@ -51,6 +42,15 @@ export default function Home(){
           <a href="https://x.com/NodeXtech12391" target="_blank" rel="noopener noreferrer">Twitter</a>
         </nav>
       </header>
+
+      <section className="card" style={{marginTop:20, marginBottom:20, textAlign:'center', background:'linear-gradient(135deg, rgba(0,153,255,0.18), rgba(255,255,255,0.03))'}}>
+        <div style={{fontSize:14, letterSpacing:'0.12em', textTransform:'uppercase', color:'#9aa8bf'}}>NodeX Launch Countdown</div>
+        <h2 style={{margin:'10px 0 8px', fontSize:36}}>{launched ? 'NodeX is launched visit the link pasted below quickly' : 'Coin will be launched in'}</h2>
+        <div style={{fontSize:42, fontWeight:800, color:'#ffffff'}}>{launched ? '00:00:00' : `${hours}:${minutes}:${seconds}`}</div>
+        <div style={{marginTop:12}}>
+          <a href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer" className="card" style={{display:'inline-block', padding:'10px 16px'}}>https://dexscreener.com/</a>
+        </div>
+      </section>
 
       <section className="hero" style={{backgroundImage:`url(${logo.src})`,backgroundRepeat:'no-repeat',backgroundPosition:'right center',backgroundSize:'40%'}}>
         <div style={{flex:1}}>
