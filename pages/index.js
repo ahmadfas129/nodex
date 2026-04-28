@@ -1,11 +1,37 @@
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import posts from '../data/posts'
 import logo from '../logo.jpeg'
 
 export default function Home(){
   const latest = posts[0]
+  const [remainingMs, setRemainingMs] = useState(10 * 60 * 60 * 1000)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setRemainingMs(prev => Math.max(prev - 1000, 0))
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [])
+
+  const totalSeconds = Math.floor(remainingMs / 1000)
+  const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0')
+  const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0')
+  const seconds = String(totalSeconds % 60).padStart(2, '0')
+  const launched = remainingMs <= 0
+
   return (
     <div className="container">
+      <section className="card" style={{marginBottom:20, textAlign:'center', background:'linear-gradient(135deg, rgba(0,153,255,0.18), rgba(255,255,255,0.03))'}}>
+        <div style={{fontSize:14, letterSpacing:'0.12em', textTransform:'uppercase', color:'#9aa8bf'}}>NodeX Launch Countdown</div>
+        <h2 style={{margin:'10px 0 8px', fontSize:36}}>{launched ? 'NodeX is live now' : 'Coin will be launched in'}</h2>
+        <div style={{fontSize:42, fontWeight:800, color:'#ffffff'}}>{launched ? '00:00:00' : `${hours}:${minutes}:${seconds}`}</div>
+        <div style={{marginTop:12}}>
+          <a href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer" className="card" style={{display:'inline-block', padding:'10px 16px'}}>https://dexscreener.com/</a>
+        </div>
+      </section>
+
       <header className="header">
         <div style={{display:'flex',alignItems:'center',gap:12}}>
           <div className="logo card"><img src={logo.src} alt="NodeX" style={{width:'100%',height:'100%'}}/></div>
