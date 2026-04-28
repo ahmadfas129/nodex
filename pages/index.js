@@ -29,7 +29,7 @@ export default function Home(){
     <div className="container">
       <section className="card" style={{marginBottom:20, textAlign:'center', background:'linear-gradient(135deg, rgba(0,153,255,0.18), rgba(255,255,255,0.03))'}}>
         <div style={{fontSize:14, letterSpacing:'0.12em', textTransform:'uppercase', color:'#9aa8bf'}}>NodeX Launch Countdown</div>
-        <h2 style={{margin:'10px 0 8px', fontSize:36}}>{launched ? 'NodeX is live now' : 'Coin will be launched in'}</h2>
+        <h2 style={{margin:'10px 0 8px', fontSize:36}}>{launched ? 'Coin is launched visit the link pasted below quickly' : 'Coin will be launched in'}</h2>
         <div style={{fontSize:42, fontWeight:800, color:'#ffffff'}}>{launched ? '00:00:00' : `${hours}:${minutes}:${seconds}`}</div>
         <div style={{marginTop:12}}>
           <a href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer" className="card" style={{display:'inline-block', padding:'10px 16px'}}>https://dexscreener.com/</a>
