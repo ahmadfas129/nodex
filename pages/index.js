@@ -3,7 +3,7 @@ import Link from 'next/link'
 import posts from '../data/posts'
 import logo from '../logo.jpeg'
 
-const launchAt = new Date('2026-04-29T23:59:59+05:00').getTime()
+const launchAt = new Date('2026-04-29T11:59:59+05:00').getTime()
 
 export default function Home(){
   const latest = posts[0]
